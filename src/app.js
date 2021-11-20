@@ -66,3 +66,14 @@ ReactDOM.render(jsx, document.getElementById("app"));
 //- C:\react-course-projects032021\xpensify-app6>git status
 //to view the untracked files
 //- move our file from untracked files to stage changes area by typing this command
+//C:\react-course-projects032021\xpensify-app6>git add jest.config.json public/ src/
+//- the above command move only the above files and folder to stage change area
+//re-run git status to view these files in the stage changes area
+//- C:\react-course-projects032021\xpensify-app6>git add .
+//the above command move all untracked files to stage changes area
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "initial commit"
+//the above command will move all your files and folders from stage changes to commit area
+//- the -m flag represent message to title your commit or save codes
+//re-run git status
+//- open app.js then remove all the action generator function dispatch to redux store manually
+//and all the related imported functions as well.
