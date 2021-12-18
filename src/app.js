@@ -379,6 +379,6 @@ ReactDOM.render(jsx, document.getElementById("app"));
 // public/styles.css.map
 //- C:\react-course-projects032021\xpensify-app6>git status
 //- C:\react-course-projects032021\xpensify-app6>git add .
-//- C:\react-course-projects032021\xpensify-app6>git commit -m "Setup production build and server"
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "Setup production build and serve"
 //- C:\react-course-projects032021\xpensify-app6>git push
 //- C:\react-course-projects032021\xpensify-app6>git push heroku main
