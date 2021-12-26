@@ -351,12 +351,12 @@ ReactDOM.render(jsx, document.getElementById("app"));
 //- C:\react-course-projects032021\xpensify-app6>heroku --version
 //- C:\react-course-projects032021\xpensify-app6>heroku login
 //its will use the above name to create url and github for you like this
-//https://react-expensify18122021.herokuapp.com/ | https://git.heroku.com/react-expensify18122021.git
+//https://react-expensify-182021.herokuapp.com/ | https://git.heroku.com/react-expensify18122021.git
 //- C:\react-course-projects032021\xpensify-app6>git remote
 // heroku
 // origin
 //- C:\react-course-projects032021\xpensify-app6>git remote -v
-// heroku  https://git.heroku.com/react-expensify18122021.git (fetch)
+// heroku  https://git.heroku.com/react-expensify182021.git (fetch)
 // heroku  https://git.heroku.com/react-expensify18122021.git (push)
 // origin  git@github.com:greaterheightscomputer/react-expensify21112021.git (fetch)
 // origin  git@github.com:greaterheightscomputer/react-expensify21112021.git (push)
@@ -382,3 +382,88 @@ ReactDOM.render(jsx, document.getElementById("app"));
 //- C:\react-course-projects032021\xpensify-app6>git commit -m "Setup production build and serve"
 //- C:\react-course-projects032021\xpensify-app6>git push
 //- C:\react-course-projects032021\xpensify-app6>git push heroku main
+//- this is the url: -> https://react-expensify-182021.herokuapp.com/
+//- C:\react-course-projects032021\xpensify-app6>heroku open
+//to open your app in the browser
+//- C:\react-course-projects032021\xpensify-app6>heroku logs
+//the above command is use to trace error if their is one.
+
+//Regular vs Development Dependencies
+//- open package.json file to view all the dependencies.
+//- all the dependencies in our package.json are being install on Heroku as we deploy our app
+//onto heroku but some of these dependencies are not use by heroku like the following
+// "enzyme": "3.0.0",
+// "enzyme-adapter-react-16": "1.0.0",
+// "enzyme-to-json": "3.0.1",
+// "jest": "^20.0.4",
+// "live-server": "1.2.0",
+// "webpack": "3.1.0",
+// "webpack-dev-server": "2.5.1"
+//- as a result of the above we shall divide the dependencies into two part which are
+//1. Regular Dependencies - these are dependencies that will be install on heroku when deploy
+// our app.
+//2. Development Dependencies - these are dependencies that will be install on our system for
+//local development purpose.
+//- C:\react-course-projects032021\xpensify-app6>npm install -D chalk
+//open package.json file to view the way its install chalk as a development dependency like this
+// "devDependencies": {
+//   "chalk": "^5.0.0"
+// }
+//We are going to move all the dependencies that we do not need for production onto
+//devDependencies object
+//- this is how the devDependencies will look like
+// "devDependencies": {
+//   "enzyme": "3.0.0",
+//   "enzyme-to-json": "3.0.1",
+//   "jest": "^20.0.4",
+//   "live-server": "1.2.0",
+//   "react-test-renderer": "16.0.0",
+//   "webpack-dev-server": "2.5.1"
+// }
+//- remove "chalk": "^5.0.0", from devDependencies setion.
+//- remove node_modules folder from the root project and re-install like this
+//C:\react-course-projects032021\xpensify-app6>npm install --production
+//- the above command we only install production dependencies and not install devDependencies
+//you can verify this by expanding the node_modules folder and search for each devDependencies
+//you will not see it their.
+//- its will only install production dependencies on heroku as well.
+//- C:\react-course-projects032021\xpensify-app6>npm install
+//its will install both production and devDependencies on your local machine. You can check
+//node_modules folder to see both production and devDependencies.
+//- open index.html file for change of path where bundle.js and style.css reside.
+//change the path from <link rel="stylesheet" type="text/css" href="./styles.css" /> and
+//<script src="/bundle.js"></script>
+//to these
+// <link rel="stylesheet" type="text/css" href="./dist/styles.css" /> and
+// <script src="/dist/bundle.js"></script>
+//- let make sure webpack is compile the bundle.js and styles.css in the right location like this
+// output: {
+//   path: path.join(__dirname, "public", "dist"),
+//   filename: "bundle.js",
+// },
+//- let webpack know where the bundled assets reside by add this property onto devServer object
+//like this
+// devServer: {
+//   contentBase: path.join(__dirname, "public"),
+//   historyApiFallback: true,
+//   publicPath: "/dist/",
+// },
+//- delete all the four assets of bundle in the public folder.
+//- let startup dev-server for local development like this
+// C:\react-course-projects032021\xpensify-app6>npm run dev-server
+//- open public directory or folder in the root folder you will see that dist folder is never
+//created becos dev-server always server-up bundle assets virtually or implicity.
+//- let setup build:prod for production deployment like this
+// C:\react-course-projects032021\xpensify-app6>npm run build:prod
+//- open public directory in the root folder you will see that dist folder is created on public
+//folder for deployment purpose.
+//- let run express server inorder to view the abpp on the like this
+// C:\react-course-projects032021\xpensify-app6>npm start
+//- go this this url http://localhost:3000/
+//- modify gitignore file from this
+// public/bundle.js
+// public/bundle.js.map
+// public/styles.css
+// public/styles.css.map
+//to this public/dist/
+//- push to both local and remote github repository
