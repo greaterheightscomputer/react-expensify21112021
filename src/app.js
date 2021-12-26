@@ -467,3 +467,37 @@ ReactDOM.render(jsx, document.getElementById("app"));
 // public/styles.css.map
 //to this public/dist/
 //- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app6>git status
+//- C:\react-course-projects032021\xpensify-app6>git add .
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "setup devDependencies and dist folder"
+//- C:\react-course-projects032021\xpensify-app6>git push
+//- C:\react-course-projects032021\xpensify-app6>git push heroku main
+//the above command will redeploy your app to heroku web hosting site.
+//- C:\react-course-projects032021\xpensify-app6>heroku open
+//its will open your web on this url: https://react-expensify-182021.herokuapp.com
+//- open Network tab in the browser to view that all the assets is server-up from dist folder
+//by hover it
+
+//New Feature Workflow
+//- open ExpenseListItem.js and its companion ExpenseListItem.test.js file as well for
+//modification of amount and created format.
+//- startup the following
+// C:\react-course-projects032021\xpensify-app6>yarn test -- --watch
+// C:\react-course-projects032021\xpensify-app6>npm run dev-server
+//- import moment from "moment"; onto ExpenseListItem.js file use it to formate createdAt.
+//- after adding new format to createdAt it throw error on the jest test suit just press u to
+//update the changes.
+//- install numberial library to format amount property like this
+// C:\react-course-projects032021\xpensify-app6>npm install numeral@2.0.6
+//- import numerial from "numeral"; onto ExpenseListItem.js file and use it.
+//- after adding new format to amount it throw error on the jest test suit just press u to
+//update the changes.
+//- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app6>git status
+//- C:\react-course-projects032021\xpensify-app6>git add .
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "setup devDependencies and dist folder"
+//- C:\react-course-projects032021\xpensify-app6>git push
+//- C:\react-course-projects032021\xpensify-app6>git push heroku main
+//the above command will redeploy your app to heroku web hosting site.
+//- C:\react-course-projects032021\xpensify-app6>heroku open
+//its will open your web on this url: https://react-expensify-182021.herokuapp.com
