@@ -495,7 +495,44 @@ ReactDOM.render(jsx, document.getElementById("app"));
 //- push to both local and remote github repository
 //- C:\react-course-projects032021\xpensify-app6>git status
 //- C:\react-course-projects032021\xpensify-app6>git add .
-//- C:\react-course-projects032021\xpensify-app6>git commit -m "setup devDependencies and dist folder"
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "setup formatting for amount and createdAt"
+//- C:\react-course-projects032021\xpensify-app6>git push
+//- C:\react-course-projects032021\xpensify-app6>git push heroku main
+//the above command will redeploy your app to heroku web hosting site.
+//- C:\react-course-projects032021\xpensify-app6>heroku open
+//its will open your web on this url: https://react-expensify-182021.herokuapp.com
+
+//Build it: Adding Total Selector
+//We are going to add a new component after filter component which will sum up all the amount
+//in the expensify app.
+//- let startup
+//C:\react-course-projects032021\xpensify-app6>yarn test -- --watch
+//C:\react-course-projects032021\xpensify-app6>npm run dev-server
+//- create expenses-total.js file onto src/selectors folder.
+//- create expenses-total.test.js onto src/tests/selectors folder.
+//- import the following onto expenses-total.test.js file
+// import selectExpensesTotal from "../../selectors/expenses-total";
+// import expenses from "../fixtures/expenses";
+//- setup the test cases inside expenses-total.test.js
+//- setup the expenses-total.js file
+
+//Built It: Adding Summary Component
+//- create ExpensesSummary.js file in src/components folder
+//- create ExpensesSummary.test.js file in src/tests/components folder.
+//- setup ExpensesSummary.js file by importing the following:
+// import React from "react";
+// import { connect } from 'react-redux';
+// import numeral from "numeral";
+//- setup ExpensesSummary.test.js file by importing the following:
+// import React from "react";
+// import {shallow} from "enzyme";
+// import { ExpensesSummary } from "../../components/ExpensesSummary"
+//- connect ExpensesSummary.js to redux store.
+//- import ExpensesSummary component onto ExpenseDashboardPage.js file for render.
+//- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app6>git status
+//- C:\react-course-projects032021\xpensify-app6>git add .
+//- C:\react-course-projects032021\xpensify-app6>git commit -m "Add expense summary to dashboard"
 //- C:\react-course-projects032021\xpensify-app6>git push
 //- C:\react-course-projects032021\xpensify-app6>git push heroku main
 //the above command will redeploy your app to heroku web hosting site.
