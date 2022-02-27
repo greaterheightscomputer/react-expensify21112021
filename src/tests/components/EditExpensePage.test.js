@@ -3,16 +3,6 @@ import { shallow } from "enzyme";
 import { EditExpensePage } from "../../components/EditExpensePage";
 import expenses from "../fixtures/expenses";
 
-//these are functions we are testing from EditExpensePage component
-// onSubmit = (expense) => {
-//     this.props.editExpense(this.props.expense.id, expense);
-//     this.props.history.push("/");
-//   };
-//   onRemove = () => {
-//     this.props.removeExpense({ id: this.props.expense.id });
-//     this.props.history.push("/");
-//   };
-
 let editExpense, removeExpense, history, wrapper; //creating variables for editExpense, removeExpense, history to store fake function for props fro EditExpensePage component
 
 beforeEach(() => {
