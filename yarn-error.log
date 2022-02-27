@@ -1,0 +1,77 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Khadijat\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add chalk --dev
+
+PATH: 
+  C:\Users\Khadijat\AppData\Roaming\npm;C:\Program Files\nodejs\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_25\bin;C:\Program Files\Java\jre1.8.0_231\bin;C:\xampp\mysql\bin;C:\Program Files\nodejs\;C:\Users\Khadijat\AppData\Local\Microsoft\WindowsApps;C:\Users\Khadijat\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Program Files\MongoDB\Server\4.4\bin;C:\Users\Khadijat\AppData\Roaming\npm;
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+
+npm manifest: 
+  {
+    "name": "expensify",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "serve": "live-server public/",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
+      "dev-server": "webpack-dev-server",
+      "test": "jest --config=jest.config.json",
+      "start": "node server/server.js",
+      "heroku-postbuild": "npm run build:prod"
+    },
+    "dependencies": {
+      "babel-cli": "6.24.1",
+      "babel-core": "6.25.0",
+      "babel-loader": "7.1.1",
+      "babel-plugin-transform-class-properties": "6.24.1",
+      "babel-plugin-transform-object-rest-spread": "6.23.0",
+      "babel-preset-env": "1.5.2",
+      "babel-preset-react": "6.24.1",
+      "css-loader": "0.28.4",
+      "enzyme": "3.0.0",
+      "enzyme-adapter-react-16": "1.0.0",
+      "enzyme-to-json": "3.0.1",
+      "express": "4.15.4",
+      "extract-text-webpack-plugin": "3.0.0",
+      "jest": "^20.0.4",
+      "live-server": "1.2.0",
+      "moment": "^2.18.1",
+      "node-sass": "4.14.1",
+      "normalize.css": "7.0.0",
+      "raf": "3.3.2",
+      "react": "16.0.0",
+      "react-addons-shallow-compare": "^15.6.0",
+      "react-dates": "^12.7.0",
+      "react-dom": "16.0.0",
+      "react-modal": "2.2.2",
+      "react-redux": "^5.0.5",
+      "react-router-dom": "4.2.2",
+      "react-test-renderer": "16.0.0",
+      "redux": "3.7.2",
+      "sass-loader": "6.0.6",
+      "style-loader": "0.18.2",
+      "uuid": "^3.1.0",
+      "validator": "8.0.0",
+      "webpack": "3.1.0",
+      "webpack-dev-server": "2.5.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
