@@ -184,3 +184,25 @@ test('should fetch the expenses from firebase', (done) => {
     done();
   });
 });
+
+//test case for startRemoveExpense() inorder to remove individual object
+test('should remove expense from firebase', (done) => {
+  const store = createMockStore({});
+  const id = expenses[2].id;
+  store
+    .dispatch(startRemoveExpenses({ id }))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: 'REMOVE_EXPENSE',
+        id,
+      });
+      return database.ref(`expenses/${id}`).once('value');
+    })
+    .then((snapshot) => {
+      // expect(snapshot.val()).toBeFalsy();
+      //or
+      expect(snapshot.val()).toBe(null);
+      done();
+    });
+});

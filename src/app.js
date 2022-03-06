@@ -334,3 +334,24 @@ store.dispatch(startSetExpenses()).then(() => {
 //the above command will push to remote git repository
 //- C:\react-course-projects032021\xpensify-app7>git push heroku master
 //the above command will redeploy your app to heroku web hosting site
+//- C:\react-course-projects032021\xpensify-app7>heroku open
+
+//Remove Expense
+//- create startRemoveExpense Async Action function inside src/actions/expenses.js file
+//- write the test case for startRemoveExpense Async Action function inside
+//tests/actions/expenses.test.js file and import startRemoveExpense onto expenses.test.js.
+//- startup jest test suite
+//- implement startRemoveExpense onto the EditExpensePage component by opening EditExpensePage.js
+//file using startRemoveExpense Async Action function in place of removeExpense Action function.
+//- open tests/components/EditExpensePage.test.js file inorder to use startRemoveExpense Async
+//Action function in place of removeExpense Action function
+//- startup dev-server inorder to actually delete one data on firebase db.
+
+//- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app7>git status
+//- C:\react-course-projects032021\xpensify-app7>git commit -am "Setup startRemoveExpense"
+//- C:\react-course-projects032021\xpensify-app7>git push
+//the above command will push to remote git repository
+//- C:\react-course-projects032021\xpensify-app7>git push heroku master
+//the above command will redeploy your app to heroku web hosting site
+//- C:\react-course-projects032021\xpensify-app7>heroku open
