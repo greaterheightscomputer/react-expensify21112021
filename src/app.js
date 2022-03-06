@@ -326,3 +326,11 @@ store.dispatch(startSetExpenses()).then(() => {
 //- startup dev-server
 //- add test case for startSetExpenses() function inside tests/actions/expenses.test.js file
 //- startup jest test suite
+
+//- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app7>git status
+//- C:\react-course-projects032021\xpensify-app7>git commit -am "Get firebase expenses on start"
+//- C:\react-course-projects032021\xpensify-app7>git push
+//the above command will push to remote git repository
+//- C:\react-course-projects032021\xpensify-app7>git push heroku master
+//the above command will redeploy your app to heroku web hosting site
