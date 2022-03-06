@@ -7,16 +7,17 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase';
+import { startSetExpenses } from './actions/expenses';
 // import "./playground/promises";
 
-//store
-const store = configureStore();
-const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
-);
-ReactDOM.render(jsx, document.getElementById('app'));
+// //store
+// const store = configureStore();
+// const jsx = (
+//   <Provider store={store}>
+//     <AppRouter />
+//   </Provider>
+// );
+// ReactDOM.render(jsx, document.getElementById('app'));
 
 //- open each file that makeup the expensify app to remove unecessary codes.
 //- C:\react-course-projects032021\xpensify-app7>npm run dev-server
@@ -109,6 +110,7 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //- open src/store/configurateStore.js file for modification
 //- import the following onto configureStore.js file
 // import { applyMiddleware, compose } from "redux";
+// import thunk from "redux-thunk";
 //- change this window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 //to
 //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -116,7 +118,7 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //- open firebase/firebase.js file for exporting some predefined methods for the purpose of use
 //in other files like this
 // export { firebase, googleAuthProvider, database as default };
-//- open action/expenses.js file for setting up the Asynchronous Action Generator Function
+//- open action/expenses.js file for setting up the startAddExpense() Asynchronous Action Generator Function
 //- open components/AddExpresePage.js component to dispatch startAddExpense() Action Generator
 //function instead of addExpense() Action Generator function
 //- open firebase database then clear or delete the data inside it.
@@ -126,7 +128,7 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 //Testing Async Redux Actions 1
 //- since we have change the Action Generator Function from addExpress() to startAddExpess()
-//which is asynchronous action function we have to modify AddExpensePage.js component.
+//which is asynchronous action function we have to modify AddExpensePage.test.js component.
 //- startup the jest test suit like this
 //C:\react-course-projects032021\xpensify-app7>yarn test -- --watch
 //- you will see some file failing becos of the change we deed to src/components/AddExpensePage.js
@@ -138,10 +140,11 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //- modify this test case "should setup add expense action object with provided values" in
 //expenses.test.js file
 //- remove this test case "should setup and expense action object with default values"
-
-//Testing Async Redux Action 2
-//- still on setting up asynchronous test case in tests/actions/expenses.test.js file
-//"should add expense with default values to database and redux store"
+//- startup jest test suit like this
+// C:\react-course-projects032021\xpensify-app7>npm test -- --watch
+//- Setup asynchronous test case in expenses.test.js file with these two test cases
+//1. test('should add expense to database and redux store',
+//2. test('should add expense with default values to database and redux store',
 
 //Creating a Separate Test Database
 //- open to see that all the async test case is writing directly to the firebase app database
@@ -183,6 +186,17 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //true then click on Publish button.
 //- go back to firebase Hom page by clicking on Firebase then click on </> web inorder to copy
 //firebase configuration setting and past it on .env.test and set the value onto the properties
+//like this
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAiLRX9YxNTXfM_9usZkkOTmFwNrWWINcg",
+//   authDomain: "expensify-test19022022.firebaseapp.com",
+//   databaseURL: "https://expensify-test19022022-default-rtdb.firebaseio.com",
+//   projectId: "expensify-test19022022",
+//   storageBucket: "expensify-test19022022.appspot.com",
+//   messagingSenderId: "613243123791",
+//   appId: "1:613243123791:web:175b65f4cb97791d40923a",
+//   measurementId: "G-Y9BYE509CY"
+// };
 //- install dotenv library to read the environment file like this
 //C:\react-course-projects032021\xpensify-app7>npm install --dev dotenv@4.0.0
 //- open webpack.config.js file to use dotenv module like this
@@ -219,11 +233,12 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //   appId: process.env.FIREBASE_APP_ID,
 //   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 // };
+//- open jest.config.json then add this
 //- open tests/setupTests.js for modification inorder to allow our test data to work by adding
 //this line of code
 // import DotEnv from 'dotenv';
 // DotEnv.config({ path: '.env.test' });
-//- completely delete both develoment and test database data.
+//- completely delete both develoment and test database data in firebase.
 //- startup jest test suit
 //- veiw both db, you will see the test db populated with dummy data while the development db
 //has not data
@@ -238,7 +253,7 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //the above command print out all the environment variables on heroku but currently we don't
 //have any environment variables, make sure your internet is on while executing the above command.
 //- setup firebaseConfig on heroku like this
-// C:\react-course-projects032021\xpensify-app7>heroku config:set -a react-expensify-27022022
+// C:\react-course-projects032021\xpensify-app7>heroku config:set -a react-expensify-182021
 // FIREBASE_API_KEY=AIzaSyAHkG-q_hJZ6nqtGk2mdy9CqHNdaO8Ccjg
 // FIREBASE_AUTH_DOMAIN=expen08012022.firebaseapp.com
 // FIREBASE_DATABASE_URL=https://expen08012022-default-rtdb.firebaseio.com
@@ -257,5 +272,57 @@ ReactDOM.render(jsx, document.getElementById('app'));
 //- C:\react-course-projects032021\xpensify-app7>git commit -m "Setup test database environment variables"
 //- C:\react-course-projects032021\xpensify-app7>git push
 //the above command will push to remote git repository
-//- C:\react-course-projects032021\xpensify-app7>git push heroku main
+//- C:\react-course-projects032021\xpensify-app7>git push heroku master
 //the above command will redeploy your app to heroku web hosting site
+//- C:\react-course-projects032021\xpensify-app7>heroku open
+//the above command will open your web app on this url->
+//https://react-expensify-182021.herokuapp.com/
+//- startup the development server like this web app
+//C:\react-course-projects032021\xpensify-app7>npm run dev-server
+
+//Fetching Expenses: Part I
+//- currently if you refresh the browser on the development app and the deployed app the data
+//inserted on db will not re-render, that is why we need to fetch data from db for the purpose
+//of re-rendering.
+//- open src/tests/actions/expenses.test.js file write this life cycle method at the top of the
+//test cases in expenses.tes.js file
+// beforeEach((done) => {
+//   const expensesData = {};
+//   expenses.forEach(({ id, description, note, amount, createdAt }) => {
+//     expensesData[id] = { description, note, amount, createdAt };
+//   });
+
+//   database.ref("expenses").set(expensesData).then(() => done());
+// });
+//- the above beforeEach() method will run before each asynchronous test cases.
+//- run jest test suite and open your test db immediately to see how the db data changes.
+//- you will see that the dummy expenses array object will be inserted first before asynchronous
+//test cases.
+//- open src/actions/expenses.js for writing code to fetch data from redux store which is
+//setExpenses() Action function.
+//- write test case for setExpenses Action function in tests/actions/expenses.test.js
+//- startup jest test suite
+//- open src/reducers/expenses.js file with its test file counterpart to setup setExpenses
+//Action function
+
+//Fetching Expenses: Part II
+//- open src/actions/expenses.js for writing code to fetch data from firebase which function is
+//startSetExpenses() Async Action function
+//- import { startSetExpenses } from './actions/expenses'; onto app.js file
+//- using startSetExpenses function to fetch data from firebase on app.js file like this
+
+//store
+const store = configureStore();
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+//- render loading on the browser while the data is stall fetching from firebase
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app')); //once the data is fetched then render the app
+});
+//- startup dev-server
+//- add test case for startSetExpenses() function inside tests/actions/expenses.test.js file
+//- startup jest test suite

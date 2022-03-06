@@ -2,11 +2,11 @@
 const expensesReducerDefaultState = [];
 const expensesReducer = (state = expensesReducerDefaultState, action) => {
   switch (action.type) {
-    case "ADD_EXPENSE":
+    case 'ADD_EXPENSE':
       return [...state, action.expense];
-    case "REMOVE_EXPENSE":
+    case 'REMOVE_EXPENSE':
       return state.filter(({ id }) => id !== action.id);
-    case "EDIT_EXPENSE":
+    case 'EDIT_EXPENSE':
       return state.map((expense) => {
         if (expense.id === action.id) {
           return {
@@ -17,6 +17,9 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
           return expense;
         }
       });
+    //fetching data from redux store
+    case 'SET_EXPENSES':
+      return action.expenses;
     default:
       return state;
   }
