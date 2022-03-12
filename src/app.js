@@ -335,6 +335,8 @@ store.dispatch(startSetExpenses()).then(() => {
 //- C:\react-course-projects032021\xpensify-app7>git push heroku master
 //the above command will redeploy your app to heroku web hosting site
 //- C:\react-course-projects032021\xpensify-app7>heroku open
+//the above command will open your web app on this url->
+//https://react-expensify-182021.herokuapp.com/
 
 //Remove Expense
 //- create startRemoveExpense Async Action function inside src/actions/expenses.js file
@@ -351,7 +353,37 @@ store.dispatch(startSetExpenses()).then(() => {
 //- C:\react-course-projects032021\xpensify-app7>git status
 //- C:\react-course-projects032021\xpensify-app7>git commit -am "Setup startRemoveExpense"
 //- C:\react-course-projects032021\xpensify-app7>git push
+//or
+//C:\react-course-projects032021\xpensify-app7>git push --set-upstream git@github.com:greaterheightscomputer/react-expensify21112021.git master
 //the above command will push to remote git repository
 //- C:\react-course-projects032021\xpensify-app7>git push heroku master
 //the above command will redeploy your app to heroku web hosting site
 //- C:\react-course-projects032021\xpensify-app7>heroku open
+//the above command will open your web app on this url->
+//https://react-expensify-182021.herokuapp.com/
+
+//Update Expense
+//- create startEditExpense Async Action Function inside src/actions/expenses.js file.
+//- write the test case for startEditExpense Async Action Function inside
+//tests/actions/expenses.test.js file and import startEditExpense onto expenses.test.js file
+//- startup jest test suite
+// C:\react-course-projects032021\xpensify-app7>npm test -- --watch
+//- implement startEditExpense onto EditExpensePage component by opening EditExpensePage.js
+//file using startEditExpense Async Action Function in place of editExpense Action Function.
+//- open tests/components/EditExpensePage.test.js file inorder to use startEditExpense Async
+//Action Function in place of editExpense Action Function.
+//- startup jest test suite
+//- startup dev-server inorder to actually edit one data on firebase db.
+
+//- push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app7>git status
+//- C:\react-course-projects032021\xpensify-app7>git commit -am "Add startEditExpense"
+//- C:\react-course-projects032021\xpensify-app7>git push
+//or
+//C:\react-course-projects032021\xpensify-app7>git push --set-upstream git@github.com:greaterheightscomputer/react-expensify21112021.git master
+//the above command will push to remote git repository
+//- C:\react-course-projects032021\xpensify-app7>git push heroku master
+//the above command will redeploy your app to heroku web hosting site
+//- C:\react-course-projects032021\xpensify-app7>heroku open
+//the above command will open your web app on this url->
+//https://react-expensify-182021.herokuapp.com/
