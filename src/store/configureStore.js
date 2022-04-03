@@ -14,10 +14,11 @@
 // };
 
 //its enable us to return function in Action Generator Function instead of an object
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import expensesReducer from "../reducers/expenses";
-import filtersReducer from "../reducers/filters";
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import expensesReducer from '../reducers/expenses';
+import filtersReducer from '../reducers/filters';
+import authReducer from '../reducers/auth';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -26,6 +27,7 @@ export default () => {
     combineReducers({
       expenses: expensesReducer,
       filters: filtersReducer,
+      auth: authReducer,
     }),
     composeEnhancers(applyMiddleware(thunk)) //composeEnhancers enable us to keep the Redux tab on the browser
     //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
