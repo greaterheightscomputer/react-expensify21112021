@@ -655,3 +655,9 @@ firebase.auth().onAuthStateChanged((user) => {
 
 //push to both local and remote github repository
 //- C:\react-course-projects032021\xpensify-app7>git status
+//- C:\react-course-projects032021\xpensify-app7>git commit -am "Add private routes"
+//- C:\react-course-projects032021\xpensify-app7>git push
+//the above command will push to remote git repository
+//C:\react-course-projects032021\xpensify-app7>git push heroku master
+//the above command will redeploy your app to heroku web hosting site.
+//-
