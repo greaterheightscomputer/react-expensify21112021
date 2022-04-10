@@ -750,3 +750,55 @@ firebase.auth().onAuthStateChanged((user) => {
 //the above command will redeploy your app to heroku web hosting site.
 //- C:\react-course-projects032021\xpensify-app7>heroku open
 //its will open your web on this url: https://react-expensify-182021.herokuapp.com/
+
+//Data Validation and Deployment
+//- validating the data store in the firebase db.
+//- the above object is from firebase RULE setting indicating that you can only write to
+//expenses array of object alone.
+//- below is the complete RULE setup with the validation of data in the firebase
+// {
+//   "rules": {
+//     ".read": false,
+//     ".write": false,
+//       "users":{
+//         "$user_id":{
+//           ".read":"$user_id === auth.uid",
+//           ".write":"$user_id===auth.uid",
+//             "expenses":{
+//               "$expense_id":{
+//                 ".validate": "newData.hasChildren(['description', 'note', 'amount', 'createdAt'])",
+//                   "description":{
+//                     ".validate": "newData.isString() && newData.val().length > 0"
+//                   },
+//                   "note":{
+//                     ".validate": "newData.isString()"
+//                   },
+//                   "amount":{
+//                     ".validate": "newData.isNumber()"
+//                   },
+//                   "createdAt":{
+//                     ".validate": "newData.isNumber()"
+//                   },
+//                   "$other":{
+//                     ".validate": false
+//                   }
+//               }
+//             },
+//             "$other":{
+//               ".validate": false
+//             }
+//         }
+//       }
+//   }
+// }
+//- click on published button once you are done
+
+//push to both local and remote github repository
+//- C:\react-course-projects032021\xpensify-app7>git status
+//- C:\react-course-projects032021\xpensify-app7>git commit -am "setup firebase Rule"
+//- C:\react-course-projects032021\xpensify-app7>git push
+//the above command will push to remote git repository
+//C:\react-course-projects032021\xpensify-app7>git push heroku master
+//the above command will redeploy your app to heroku web hosting site.
+//- C:\react-course-projects032021\xpensify-app7>heroku open
+//its will open your web on this url: https://react-expensify-182021.herokuapp.com/
